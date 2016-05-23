@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd   
+   		 http://www.springframework.org/schema/aop 
+         http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://code.alibabatech.com/schema/dubbo 
+         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 应用名称(唯一的) -->
+	<dubbo:application name="ddup-commercialization" owner="alanzhang" />
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://139.129.132.252:2181" />
+	<!-- 协议、端口 -->
+	<dubbo:protocol port="30004"/>
+	<dubbo:provider loadbalance="random" threads="1000" />
+
+	<dubbo:monitor protocol="registry" />
+
+	<!-- 商业化业务接口 -->
+	<dubbo:service 
+		interface="com.ddup.commercialization.api.goods.GoodsRemoteService" ref="goodsRemoteService"
+		version="0.0.1 " timeout="2000" retries="1" />
+		
+    <!-- ============================== BUser ========================================== -->
+    <dubbo:registry id="bUserRegistry"
+                    address="zookeeper://registry1.dubbo.host:2181;zookeeper://registry2.dubbo.host:2181;zookeeper://registry3.dubbo.host:2181"/>
+    <dubbo:reference id="bUserQueryService" interface="com.lagou.service.business.buser.api.BUserQueryService"
+                     registry="bUserRegistry" protocol="dubbo" check="false" version="0.0.1"/>		
+		
+</beans>

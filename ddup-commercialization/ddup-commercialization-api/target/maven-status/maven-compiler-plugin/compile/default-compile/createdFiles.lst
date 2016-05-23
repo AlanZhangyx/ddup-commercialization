@@ -1,0 +1,3 @@
+com\ddup\commercialization\api\App.class
+com\ddup\commercialization\api\model\GoodsDTO.class
+com\ddup\commercialization\api\goods\GoodsRemoteService.class

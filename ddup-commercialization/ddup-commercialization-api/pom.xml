@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.ddup</groupId>
+		<artifactId>ddup-commercialization</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>ddup-commercialization-api</artifactId>
+	<name>ddup-commercialization-api</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<lagou-common-base.version>0.0.5</lagou-common-base.version>
+		<lagou-common-base-util.version>0.0.13</lagou-common-base-util.version>
+		<lagou-common-base-dubbo.version>0.0.1-SNAPSHOT</lagou-common-base-dubbo.version>
+	</properties>
+	
+	<dependencies>
+		<!-- base-util -->
+		<dependency>
+			<groupId>com.lagou.common</groupId>
+			<artifactId>lagou-common-base-util</artifactId>
+			<version>${lagou-common-base-util.version}</version>
+		</dependency>
+
+		<!-- lagou-common -->
+		<dependency>
+			<groupId>com.lagou.common</groupId>
+			<artifactId>lagou-common-base</artifactId>
+			<version>${lagou-common-base.version}</version>
+		</dependency>
+		<!-- dubbo -->
+		<dependency>
+			<groupId>com.lagou.common</groupId>
+			<artifactId>lagou-common-base-dubbo</artifactId>
+			<version>${lagou-common-base-dubbo.version}</version>
+		</dependency>
+		<!-- google guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+	</dependencies>
+</project>
